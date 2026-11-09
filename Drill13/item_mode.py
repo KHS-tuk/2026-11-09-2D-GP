@@ -22,6 +22,14 @@ def update():
     game_world.update()
 
 
+def pause():
+    pass
+
+
+def resume():
+    play_mode.boy.reset_input()
+
+
 def render():
     clear_canvas()
     game_world.render()
