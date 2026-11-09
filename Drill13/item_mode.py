@@ -30,10 +30,14 @@ def render():
 
 
 def handle_events():
+    import pause_mode
+
     event_list = get_events()
     for event in event_list:
         if event.type == SDL_QUIT:
             game_framework.quit()
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_p:
+            game_framework.push_mode(pause_mode)
         elif event.type == SDL_KEYDOWN and event.key == SDLK_i:
             game_framework.pop_mode()
         elif event.type == SDL_KEYDOWN and event.key in (SDLK_0, SDLK_1, SDLK_2):
