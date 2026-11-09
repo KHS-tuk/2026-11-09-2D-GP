@@ -9,6 +9,10 @@ def remove_object(o):
             layer.remove(o)
             return
 
+def remove_objects(predicate):
+    for layer in world:
+        layer[:] = [o for o in layer if not predicate(o)]
+
 def update():
     for layer in world:
         for o in layer[:]:
